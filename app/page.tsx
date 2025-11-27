@@ -18,7 +18,9 @@ export default function HubPage() {
             icon: Shield,
             theme: "green",
             status: "Live",
-            href: "/products/chefos"
+            href: "/products/chefos",
+            hoverMedia: "https://res.cloudinary.com/dptqxjhb8/video/upload/v1764090465/Chef_Uses_AR_For_Kitchen_Safety_vtsjtt.mp4",
+            mediaType: "video"
         },
         {
             id: "siteos",
@@ -28,7 +30,9 @@ export default function HubPage() {
             icon: HardHat,
             theme: "orange",
             status: "Join Waitlist",
-            href: "/products/siteos"
+            href: "/products/siteos",
+            hoverMedia: "https://res.cloudinary.com/dptqxjhb8/image/upload/v1764195318/SiteOS_dashboard_wmgr3v.png",
+            mediaType: "image"
         },
         {
             id: "aegis",
@@ -38,7 +42,9 @@ export default function HubPage() {
             icon: Truck,
             theme: "cyan",
             status: "Case Study",
-            href: "/products/aegis"
+            href: "/products/aegis",
+            hoverMedia: null,
+            mediaType: null
         }
     ];
 
@@ -108,32 +114,59 @@ export default function HubPage() {
                                     <Link href={tool.href} className="block group h-full">
                                         <div className="h-full p-8 border border-slate-200 rounded-2xl hover:border-slate-300 hover:shadow-lg transition-all duration-300 bg-white flex flex-col relative overflow-hidden">
 
-                                            {/* Status Badge */}
-                                            <div className="absolute top-6 right-6">
-                                                <span className={`
-                                            text-xs font-bold px-3 py-1 rounded-full border
-                                            ${tool.status === 'Live' ? 'bg-green-50 text-green-700 border-green-200' : ''}
-                                            ${tool.status === 'Join Waitlist' ? 'bg-orange-50 text-orange-700 border-orange-200' : ''}
-                                            ${tool.status === 'Case Study' ? 'bg-cyan-50 text-cyan-700 border-cyan-200' : ''}
+                                            {/* Hover Media Background */}
+                                            {tool.hoverMedia && (
+                                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0">
+                                                    {tool.mediaType === 'video' ? (
+                                                        <video
+                                                            src={tool.hoverMedia}
+                                                            autoPlay
+                                                            muted
+                                                            loop
+                                                            playsInline
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    ) : (
+                                                        <img
+                                                            src={tool.hoverMedia}
+                                                            alt={tool.name}
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    )}
+                                                    {/* Gradient Overlay to ensure text readability */}
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-slate-900/10" />
+                                                </div>
+                                            )}
+
+                                            {/* Content Layer (z-10 to sit above media) */}
+                                            <div className="relative z-10 flex flex-col h-full">
+                                                {/* Status Badge */}
+                                                <div className="absolute top-0 right-0">
+                                                    <span className={`
+                                                text-xs font-bold px-3 py-1 rounded-full border
+                                                ${tool.status === 'Live' ? 'bg-green-50 text-green-700 border-green-200 group-hover:bg-white/20 group-hover:text-white group-hover:border-white/20' : ''}
+                                                ${tool.status === 'Join Waitlist' ? 'bg-orange-50 text-orange-700 border-orange-200 group-hover:bg-white/20 group-hover:text-white group-hover:border-white/20' : ''}
+                                                ${tool.status === 'Case Study' ? 'bg-cyan-50 text-cyan-700 border-cyan-200 group-hover:bg-white/20 group-hover:text-white group-hover:border-white/20' : ''}
+                                            `}>
+                                                        {tool.status}
+                                                    </span>
+                                                </div>
+
+                                                <div className={`
+                                            w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-colors
+                                            ${tool.theme === 'green' ? 'bg-green-50 text-green-600 group-hover:bg-white/20 group-hover:text-white' : ''}
+                                            ${tool.theme === 'orange' ? 'bg-orange-50 text-orange-600 group-hover:bg-white/20 group-hover:text-white' : ''}
+                                            ${tool.theme === 'cyan' ? 'bg-cyan-50 text-cyan-600 group-hover:bg-white/20 group-hover:text-white' : ''}
                                         `}>
-                                                    {tool.status}
-                                                </span>
-                                            </div>
+                                                    <Icon size={28} />
+                                                </div>
 
-                                            <div className={`
-                                        w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-colors
-                                        ${tool.theme === 'green' ? 'bg-green-50 text-green-600 group-hover:bg-green-100' : ''}
-                                        ${tool.theme === 'orange' ? 'bg-orange-50 text-orange-600 group-hover:bg-orange-100' : ''}
-                                        ${tool.theme === 'cyan' ? 'bg-cyan-50 text-cyan-600 group-hover:bg-cyan-100' : ''}
-                                    `}>
-                                                <Icon size={28} />
-                                            </div>
+                                                <h2 className="text-2xl font-bold mb-2 group-hover:text-white transition-colors">{tool.name}</h2>
+                                                <p className="text-slate-500 mb-8 flex-1 group-hover:text-slate-200 transition-colors">{tool.description}</p>
 
-                                            <h2 className="text-2xl font-bold mb-2">{tool.name}</h2>
-                                            <p className="text-slate-500 mb-8 flex-1">{tool.description}</p>
-
-                                            <div className="flex items-center text-sm font-bold text-slate-900 group-hover:translate-x-1 transition-transform">
-                                                Explore {tool.sector} <ArrowUpRight size={16} className="ml-1" />
+                                                <div className="flex items-center text-sm font-bold text-slate-900 group-hover:text-white group-hover:translate-x-1 transition-all">
+                                                    Explore {tool.sector} <ArrowUpRight size={16} className="ml-1" />
+                                                </div>
                                             </div>
                                         </div>
                                     </Link>
