@@ -1,14 +1,12 @@
-
 'use client';
 
 import Link from "next/link";
 import { Shield, HardHat, Truck, Search, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import BlogFeed from "@/components/BlogFeed";
+import { SignInButton, SignUpButton, UserButton, SignedIn, SignedOut } from "@clerk/nextjs";
 
 export default function HubPage() {
-    // Static placeholder data removed in favor of dynamic BlogFeed component
-
     const [searchQuery, setSearchQuery] = useState("");
 
     const tools = [
@@ -56,9 +54,24 @@ export default function HubPage() {
             <nav className="border-b border-slate-100 py-4">
                 <div className="container mx-auto px-6 flex justify-between items-center">
                     <div className="font-bold tracking-tight text-lg">VECTIS HUB</div>
-                    <div className="flex gap-4 text-sm font-medium text-slate-500">
-                        <Link href="/dashboard" className="hover:text-slate-900">Dashboard</Link>
+                    <div className="flex gap-4 text-sm font-medium text-slate-500 items-center">
                         <Link href="/blog" className="hover:text-slate-900">Intelligence</Link>
+
+                        <SignedIn>
+                            <Link href="/dashboard" className="hover:text-slate-900">Dashboard</Link>
+                            <UserButton />
+                        </SignedIn>
+
+                        <SignedOut>
+                            <SignInButton mode="modal">
+                                <button className="hover:text-slate-900">Sign In</button>
+                            </SignInButton>
+                            <SignUpButton mode="modal">
+                                <button className="bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 transition-colors">
+                                    Sign Up
+                                </button>
+                            </SignUpButton>
+                        </SignedOut>
                     </div>
                 </div>
             </nav>
