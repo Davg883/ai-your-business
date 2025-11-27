@@ -106,7 +106,18 @@ export default function ProductShowcase() {
 
                         {/* Card 1: Safety */}
                         <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 lg:col-span-2 bg-zinc-900 rounded-3xl p-8 border border-zinc-800 hover:border-green-500/30 transition-colors group relative overflow-hidden h-[400px]">
-                            <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-opacity">
+                            <div className="absolute inset-0 z-0">
+                                <video
+                                    src="https://res.cloudinary.com/dptqxjhb8/video/upload/v1764090465/Chef_Uses_AR_For_Kitchen_Safety_vtsjtt.mp4"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent" />
+                            </div>
+                            <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-opacity z-10">
                                 <Shield size={120} />
                             </div>
                             <div className="relative z-10 h-full flex flex-col justify-end">
@@ -120,7 +131,18 @@ export default function ProductShowcase() {
 
                         {/* Card 2: Marketing */}
                         <motion.div variants={itemVariants} className="col-span-1 bg-zinc-900 rounded-3xl p-8 border border-zinc-800 hover:border-purple-500/30 transition-colors group relative overflow-hidden h-[400px]">
-                            <div className="absolute -right-4 -top-4 opacity-20 group-hover:opacity-40 transition-opacity">
+                            <div className="absolute inset-0 z-0">
+                                <video
+                                    src="https://res.cloudinary.com/dptqxjhb8/video/upload/v1764090414/App_from_kitchen_to_socials_wmw3ob.mp4"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent" />
+                            </div>
+                            <div className="absolute -right-4 -top-4 opacity-20 group-hover:opacity-40 transition-opacity z-10">
                                 <Wand size={100} />
                             </div>
                             <div className="relative z-10 h-full flex flex-col justify-end">
@@ -166,11 +188,12 @@ export default function ProductShowcase() {
                                 </div>
                                 <div className="flex-1 relative h-64 w-full md:w-auto">
                                     {/* Book Cover Mockup */}
-                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-64 bg-gradient-to-br from-zinc-800 to-zinc-950 rounded-r-lg shadow-2xl border-l-4 border-zinc-700 flex items-center justify-center transform rotate-[-10deg] group-hover:rotate-0 transition-transform duration-500">
-                                        <div className="text-center p-4">
-                                            <div className="text-yellow-500 font-serif text-2xl mb-2">VECTIS</div>
-                                            <div className="text-white font-bold text-sm tracking-widest">FIELD MANUAL</div>
-                                        </div>
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-64 rounded-lg shadow-2xl transform rotate-[-10deg] group-hover:rotate-0 transition-transform duration-500 overflow-hidden border border-zinc-700">
+                                        <img
+                                            src="https://res.cloudinary.com/dptqxjhb8/image/upload/v1764194608/AI_for_Media_Level_1_Cover_rcc3r9.png"
+                                            alt="AI for Media Manual"
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
                                 </div>
                             </div>
