@@ -3,11 +3,14 @@ import { action } from "../_generated/server";
 import { v } from "convex/values";
 import OpenAI from "openai";
 
-const openai = new OpenAI();
-
 export const generateCampaign = action({
     args: { topic: v.string(), sector: v.string() }, // e.g. "Winter Menu Trends", "Hospitality"
     handler: async (ctx, args) => {
+        const apiKey = process.env.OPENAI_API_KEY;
+        if (!apiKey) {
+            throw new Error("OPENAI_API_KEY is not set");
+        }
+        const openai = new OpenAI({ apiKey });
 
         // 1. Generate the SEO Blog Post
         const blogPrompt = `

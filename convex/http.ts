@@ -15,7 +15,7 @@ http.route({
         }
 
         const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-            apiVersion: "2025-01-27.acacia",
+            typescript: true,
         });
 
         const payload = await request.text();
