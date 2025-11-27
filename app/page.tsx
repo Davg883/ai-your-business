@@ -1,37 +1,13 @@
+
 'use client';
 
 import Link from "next/link";
 import { Shield, HardHat, Truck, Search, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
+import BlogFeed from "@/components/BlogFeed";
 
 export default function HubPage() {
-    // Static placeholder data to prevent hydration crash
-    const posts = [
-        {
-            _id: "1",
-            slug: "winter-hygiene-risks",
-            title: "Winter Hygiene Risks in Commercial Kitchens",
-            publishedAt: Date.now(),
-            content: "As temperatures drop, pests move indoors...",
-            coverImage: null
-        },
-        {
-            _id: "2",
-            slug: "digital-audit-trails",
-            title: "Why Paper Logs Won't Stand Up in Court",
-            publishedAt: Date.now() - 86400000,
-            content: "The legal landscape is shifting...",
-            coverImage: null
-        },
-        {
-            _id: "3",
-            slug: "ai-in-construction",
-            title: "AI in Construction: Beyond the Hype",
-            publishedAt: Date.now() - 172800000,
-            content: "How computer vision is saving lives...",
-            coverImage: null
-        }
-    ];
+    // Static placeholder data removed in favor of dynamic BlogFeed component
 
     const [searchQuery, setSearchQuery] = useState("");
 
@@ -223,32 +199,7 @@ export default function HubPage() {
                         </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {posts.map((post) => (
-                            <Link href={`/blog/${post.slug}`} key={post._id} className="group block">
-                                <article className="flex flex-col h-full">
-                                    <div className="aspect-[4/3] bg-slate-200 rounded-xl overflow-hidden mb-4 relative">
-                                        {post.coverImage ? (
-                                            <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                        ) : (
-                                            <div className="w-full h-full flex items-center justify-center text-slate-400 bg-white">
-                                                <span className="font-serif italic opacity-20">Vectis</span>
-                                            </div>
-                                        )}
-                                    </div>
-                                    <div className="text-xs font-bold text-slate-400 mb-2 uppercase tracking-wider">
-                                        {new Date(post.publishedAt).toLocaleDateString()}
-                                    </div>
-                                    <h3 className="text-lg font-bold mb-2 group-hover:text-blue-600 transition-colors leading-snug">
-                                        {post.title}
-                                    </h3>
-                                    <p className="text-slate-500 text-sm line-clamp-2">
-                                        {post.content.substring(0, 100)}...
-                                    </p>
-                                </article>
-                            </Link>
-                        ))}
-                    </div>
+                    <BlogFeed />
                 </div>
             </section>
 
