@@ -43,8 +43,8 @@ export default function HubPage() {
             theme: "cyan",
             status: "Case Study",
             href: "/products/aegis",
-            hoverMedia: null,
-            mediaType: null
+            hoverMedia: "https://res.cloudinary.com/dptqxjhb8/video/upload/v1764195405/visual_overlays_pn5uut.mp4",
+            mediaType: "video"
         }
     ];
 
@@ -54,13 +54,17 @@ export default function HubPage() {
     );
 
     return (
-        <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-slate-200">
+        <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-slate-200 relative overflow-hidden">
+
+            {/* Decorative Background Elements (Flash of Color) */}
+            <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-orange-100/40 rounded-full blur-[120px] -z-10 pointer-events-none" />
+            <div className="absolute top-[10%] right-[-10%] w-[40%] h-[40%] bg-blue-100/40 rounded-full blur-[100px] -z-10 pointer-events-none" />
 
             {/* Navigation Placeholder (Minimal) */}
-            <nav className="border-b border-slate-100 py-4">
+            <nav className="border-b border-slate-100 py-4 bg-white/50 backdrop-blur-sm sticky top-0 z-50">
                 <div className="container mx-auto px-6 flex justify-between items-center">
                     <div className="font-bold tracking-tight text-lg">
-                        <img src="https://res.cloudinary.com/dptqxjhb8/image/upload/v1764267175/AI_you_business_logo_maxoyl.png" alt="AI Your Business" className="h-10 w-auto" />
+                        <img src="https://res.cloudinary.com/dptqxjhb8/image/upload/v1764267175/AI_you_business_logo_maxoyl.png" alt="AI Your Business" className="h-16 w-auto" />
                     </div>
                     <div className="flex gap-4 text-sm font-medium text-slate-500 items-center">
                         <Link href="/blog" className="hover:text-slate-900">Intelligence</Link>
