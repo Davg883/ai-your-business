@@ -3,8 +3,9 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
 import Stripe from "stripe";
 
+// FIX: Removed the specific apiVersion line to prevent TypeScript build errors
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-    apiVersion: "2025-01-27.acacia",
+    typescript: true,
 });
 
 export async function createCheckoutSession(appId: string) {
@@ -15,17 +16,19 @@ export async function createCheckoutSession(appId: string) {
         throw new Error("Unauthorized");
     }
 
-    // In a real app, you'd map appId to a specific Stripe Price ID
-    // For demo purposes, we'll use a hardcoded Price ID or create a one-time price
-    // const priceId = "price_1234567890"; 
+    // Use the Price ID you created in the Stripe Dashboard earlier
+    // This ensures all sales track to the same product analytics
+    // Replace "price_1Q..." with your actual ID if you have it.
+    // If not, the 'price_data' block below acts as a fallback.
 
-    // Creating a session
     const session = await stripe.checkout.sessions.create({
         customer_email: user.emailAddresses[0].emailAddress,
         line_items: [
             {
-                // Provide the exact Price ID (for example, created in your Stripe Dashboard)
-                // price: 'price_1Q...', 
+                // OPTION A (Recommended): Use your real Price ID
+                // price: "price_1Qxxxxxxxxxxxxxx", 
+
+                // OPTION B (Current): Create product on the fly
                 price_data: {
                     currency: 'gbp',
                     product_data: {
