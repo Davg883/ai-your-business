@@ -56,11 +56,13 @@ export default function ProductShowcase() {
                     <div className="absolute inset-0 bg-black/40 z-10" /> {/* Dimmer */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" /> {/* Bottom Fade */}
 
-                    {/* Placeholder for Video - using a high quality image for now if video fails or is heavy */}
-                    <img
-                        src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2070&auto=format&fit=crop"
-                        alt="ChefOS Background"
-                        className="w-full h-full object-cover opacity-80"
+                    <video
+                        src="https://res.cloudinary.com/dptqxjhb8/video/upload/v1764178428/ChefOS_Sizzle_60Sec_720p_jwj6ki.mp4"
+                        autoPlay
+                        muted={!isPlaying} // Re-using isPlaying state to mean "Sound On" for this context, or we can rename it.
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover"
                     />
                 </div>
 
@@ -84,10 +86,32 @@ export default function ProductShowcase() {
                             onClick={() => setIsPlaying(!isPlaying)}
                             className="group flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 rounded-full transition-all mx-auto"
                         >
-                            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black group-hover:scale-110 transition-transform">
-                                <Play size={18} fill="currentColor" className="ml-1" />
+                            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black group-hover:scale-110 transition-transform overflow-hidden">
+                                {!isPlaying ? (
+                                    <Play size={18} fill="currentColor" className="ml-1" />
+                                ) : (
+                                    <div className="flex items-end justify-center gap-1 h-4 pb-1">
+                                        <motion.div
+                                            animate={{ height: [4, 12, 6, 14, 4] }}
+                                            transition={{ duration: 0.5, repeat: Infinity }}
+                                            className="w-1 bg-black rounded-full"
+                                        />
+                                        <motion.div
+                                            animate={{ height: [6, 16, 8, 12, 6] }}
+                                            transition={{ duration: 0.4, repeat: Infinity }}
+                                            className="w-1 bg-black rounded-full"
+                                        />
+                                        <motion.div
+                                            animate={{ height: [4, 10, 4, 8, 4] }}
+                                            transition={{ duration: 0.6, repeat: Infinity }}
+                                            className="w-1 bg-black rounded-full"
+                                        />
+                                    </div>
+                                )}
                             </div>
-                            <span className="text-lg font-medium tracking-wide">Watch Trailer</span>
+                            <span className="text-lg font-medium tracking-wide">
+                                {isPlaying ? "Sound On" : "Watch Sizzle Reel"}
+                            </span>
                         </button>
                     </motion.div>
                 </div>
