@@ -40,10 +40,18 @@ export default function BlogFeed() {
                 >
                     <div className="relative h-48 mb-4 overflow-hidden rounded-lg bg-gray-100 border border-gray-200">
                         {/* If you have cover images, render them here. If not, use a placeholder or Sector badge */}
-                        <div className="absolute inset-0 flex items-center justify-center text-gray-300 group-hover:scale-105 transition-transform duration-500">
-                            {/* Placeholder Visual */}
-                            <span className="text-4xl font-bold opacity-20">VECTIS</span>
-                        </div>
+                        {post.coverImage ? (
+                            <img
+                                src={post.coverImage}
+                                alt={post.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                        ) : (
+                            <div className="absolute inset-0 flex items-center justify-center text-gray-300 group-hover:scale-105 transition-transform duration-500">
+                                {/* Placeholder Visual */}
+                                <span className="text-4xl font-bold opacity-20">VECTIS</span>
+                            </div>
+                        )}
                         <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-2 py-1 text-xs font-bold uppercase tracking-widest text-slate-800 rounded">
                             Intelligence
                         </div>

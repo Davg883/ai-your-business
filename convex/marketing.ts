@@ -1,5 +1,5 @@
 import { v } from "convex/values";
-import { query } from "./_generated/server";
+import { query, mutation } from "./_generated/server";
 
 export const getPublishedPosts = query({
     args: {},
@@ -20,5 +20,12 @@ export const getPostBySlug = query({
             .withIndex("by_slug", (q) => q.eq("slug", args.slug))
             .first();
         return post;
+    },
+});
+
+export const updatePostCoverImage = mutation({
+    args: { id: v.id("blog_posts"), imageUrl: v.string() },
+    handler: async (ctx, args) => {
+        await ctx.db.patch(args.id, { coverImage: args.imageUrl });
     },
 });
