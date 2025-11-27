@@ -1,0 +1,35 @@
+{
+    "pageType": "useCase",
+    "slug": "react-performance-optimization",
+    "title": "React Performance Optimization - Speed Up Your App | AI React Reviewer",
+    "metaDescription": "Optimize your React application performance with AI. Detect unnecessary re-renders, heavy computations, and bundle size issues instantly.",
+    "heroHeadline": "Make Your React App Fly",
+    "heroSubheadline": "Automatically detect and fix performance bottlenecks in your React codebase.",
+    "targetAudience": "React Developers",
+    "painPoints": [
+        "App feels sluggish and slow",
+        "Unnecessary re-renders slowing down UI",
+        "Large bundle sizes affecting load time",
+        "Hard to find memory leaks"
+    ],
+    "solutions": [
+        {
+            "pain": "App feels sluggish",
+            "solution": "Identify heavy computations blocking the main thread"
+        },
+        {
+            "pain": "Unnecessary re-renders",
+            "solution": "Visualize render cycles and fix dependency arrays"
+        }
+    ],
+    "primaryCTA": {
+        "text": "Optimize My App Free",
+        "href": "/sign-up?use-case=performance"
+    },
+    "keywords": [
+        "react performance optimization",
+        "react re-renders",
+        "react memory leak",
+        "fast react app"
+    ]
+}

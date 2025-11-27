@@ -1,0 +1,47 @@
+{
+    "pageType": "comparison",
+    "slug": "eslint-alternative",
+    "title": "Best ESLint Alternative 2025 - AI Powered Analysis | AI React Reviewer",
+    "metaDescription": "Looking for more than just syntax checking? AI React Reviewer goes beyond ESLint to understand logic, performance, and security context.",
+    "heroHeadline": "Go Beyond Static Analysis",
+    "heroSubheadline": "ESLint catches syntax errors. We catch logic bugs, performance issues, and security vulnerabilities.",
+    "competitor": "ESLint",
+    "comparisonTable": [
+        {
+            "feature": "Syntax Checking",
+            "us": true,
+            "them": true
+        },
+        {
+            "feature": "Logic Bug Detection",
+            "us": true,
+            "them": false
+        },
+        {
+            "feature": "Performance Context",
+            "us": true,
+            "them": false
+        },
+        {
+            "feature": "Fix Suggestions",
+            "us": "Full Code Rewrite",
+            "them": "Limited Autofix"
+        }
+    ],
+    "whySwitch": [
+        "Understand the 'why' behind the error",
+        "Get complete code rewrites, not just flags",
+        "Detect complex performance regressions",
+        "Secure your app against XSS and more"
+    ],
+    "primaryCTA": {
+        "text": "Upgrade Your Review Process",
+        "href": "/sign-up?ref=eslint-alternative"
+    },
+    "keywords": [
+        "eslint alternative",
+        "better than eslint",
+        "ai vs eslint",
+        "static analysis alternative"
+    ]
+}

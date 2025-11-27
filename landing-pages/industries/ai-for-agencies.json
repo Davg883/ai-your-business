@@ -1,0 +1,37 @@
+{
+    "pageType": "industry",
+    "slug": "ai-for-agencies",
+    "title": "AI Code Review for Agencies - Scale Quality Assurance | AI React Reviewer",
+    "metaDescription": "Agencies use our AI to ensure code quality across multiple client projects. Catch bugs early and deliver flawless React applications.",
+    "heroHeadline": "Deliver Flawless Code to Every Client",
+    "heroSubheadline": "Automated QA and code review for high-velocity agency teams.",
+    "industrySpecificBenefits": [
+        {
+            "title": "Consistent Quality",
+            "description": "Enforce code standards across all client projects automatically."
+        },
+        {
+            "title": "Faster Delivery",
+            "description": "Spend less time reviewing PRs and more time building features."
+        },
+        {
+            "title": "Client Trust",
+            "description": "Deliver bug-free applications that perform perfectly."
+        }
+    ],
+    "caseStudy": {
+        "company": "Top Tier Digital",
+        "result": "Reduced QA time by 60%",
+        "metric": "Saved 20+ hours per week"
+    },
+    "primaryCTA": {
+        "text": "Start Agency Plan",
+        "href": "/sign-up?industry=agencies"
+    },
+    "keywords": [
+        "code review for agencies",
+        "agency qa tools",
+        "automated testing for agencies",
+        "react agency tools"
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "slug": "react-performance-audit",
+    "title": "Automated React Performance Audit Tool | ReactReviewer",
+    "description": "Identify and fix React performance bottlenecks instantly. Detect unnecessary re-renders, heavy computations, and memory leaks with AI.",
+    "hero": {
+        "headline": "Stop React Performance Regressions",
+        "subheadline": "Automatically detect and fix performance issues in your React codebase before they reach production.",
+        "ctaPrimary": "Audit My Code Free",
+        "ctaSecondary": "View Sample Report"
+    },
+    "features": [
+        {
+            "title": "Re-render Detection",
+            "description": "Visualize component re-renders and identify wasted cycles.",
+            "icon": "Zap"
+        },
+        {
+            "title": "Bundle Size Analysis",
+            "description": "Track bundle size impact of every pull request.",
+            "icon": "Box"
+        },
+        {
+            "title": "Memory Leak Check",
+            "description": "Find uncleaned effects and event listeners automatically.",
+            "icon": "Search"
+        }
+    ],
+    "faq": [
+        {
+            "question": "How does it check performance?",
+            "answer": "We use static analysis combined with AI to identify patterns known to cause performance issues."
+        }
+    ]
+}

@@ -1,0 +1,70 @@
+{
+    "pageType": "feature",
+    "slug": "ai-code-review",
+    "title": "AI Code Review - Instant React Code Analysis | AI React Reviewer",
+    "metaDescription": "Get instant, AI-powered code reviews for your React components. Detect bugs, security issues, and performance bottlenecks in seconds. Try free!",
+    "heroHeadline": "Your Personal AI Code Reviewer",
+    "heroSubheadline": "Instant feedback on your React code. Catch bugs before they reach production.",
+    "primaryCTA": {
+        "text": "Review My Code Free",
+        "href": "/sign-up?feature=code-review"
+    },
+    "secondaryCTA": {
+        "text": "See Example Report",
+        "href": "#demo"
+    },
+    "benefits": [
+        {
+            "title": "Instant Feedback",
+            "description": "Get a comprehensive review in seconds, not hours.",
+            "icon": "zap"
+        },
+        {
+            "title": "Security Scanning",
+            "description": "Automatically detect XSS vulnerabilities and unsafe patterns.",
+            "icon": "shield"
+        },
+        {
+            "title": "Performance Audit",
+            "description": "Identify re-renders and memory leaks automatically.",
+            "icon": "activity"
+        }
+    ],
+    "socialProof": {
+        "stats": [
+            {
+                "value": "10,000+",
+                "label": "Components Reviewed"
+            },
+            {
+                "value": "500+",
+                "label": "Bugs Prevented"
+            },
+            {
+                "value": "4.9/5",
+                "label": "Developer Rating"
+            }
+        ],
+        "testimonial": {
+            "quote": "This tool catches things I miss even after staring at code for hours. It's like having a senior dev on call 24/7.",
+            "author": "Mike T.",
+            "role": "Senior Frontend Dev"
+        }
+    },
+    "faq": [
+        {
+            "question": "Does it work with TypeScript?",
+            "answer": "Yes! We fully support TypeScript, JSX, and TSX files."
+        },
+        {
+            "question": "Is my code secure?",
+            "answer": "Absolutely. We don't store your code after analysis unless you choose to save it to your project history."
+        }
+    ],
+    "keywords": [
+        "ai code review",
+        "react code analysis",
+        "automated code review",
+        "static analysis react"
+    ]
+}

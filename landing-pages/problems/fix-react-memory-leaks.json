@@ -1,0 +1,66 @@
+{
+    "pageType": "problemSolution",
+    "slug": "fix-react-memory-leaks",
+    "title": "How to Fix React Memory Leaks Automatically | AI React Reviewer",
+    "metaDescription": "Struggling with memory leaks in React? Learn how AI can automatically detect uncleaned effects and event listeners in your components.",
+    "heroHeadline": "Stop React Memory Leaks Dead",
+    "heroSubheadline": "Automatically detect and fix uncleaned side effects and event listeners.",
+    "problem": {
+        "title": "Memory Leaks Crash Apps",
+        "description": "Slow performance, browser crashes, and unhappy users. Memory leaks are silent killers.",
+        "painPoints": [
+            "Hard to reproduce in development",
+            "Browser crashes after long usage",
+            "Slow performance over time",
+            "Difficult to trace back to source"
+        ]
+    },
+    "solution": {
+        "title": "AI Finds the Leak Instantly",
+        "description": "Our AI analyzes your useEffect hooks and event listeners to ensure everything is cleaned up properly.",
+        "steps": [
+            {
+                "step": 1,
+                "title": "Scan Your Component",
+                "description": "Upload your file or paste your code"
+            },
+            {
+                "step": 2,
+                "title": "Detect Missing Cleanups",
+                "description": "AI identifies missing return statements in useEffect"
+            },
+            {
+                "step": 3,
+                "title": "Auto-Fix Code",
+                "description": "Get the corrected code with proper cleanup functions"
+            }
+        ]
+    },
+    "results": {
+        "title": "Stable, Fast Applications",
+        "metrics": [
+            {
+                "value": "100%",
+                "label": "Leaks Detected"
+            },
+            {
+                "value": "0",
+                "label": "Crashes Reported"
+            },
+            {
+                "value": "2x",
+                "label": "Long-Session Stability"
+            }
+        ]
+    },
+    "primaryCTA": {
+        "text": "Fix Memory Leaks Free",
+        "href": "/sign-up?problem=memory-leaks"
+    },
+    "keywords": [
+        "fix react memory leak",
+        "react useeffect cleanup",
+        "memory leak detection",
+        "react performance tools"
+    ]
+}

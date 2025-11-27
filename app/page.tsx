@@ -1,65 +1,199 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+import Link from "next/link";
+import { Shield, HardHat, Truck, Search, ArrowRight, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+
+export default function HubPage() {
+    // Static placeholder data to prevent hydration crash
+    const posts = [
+        {
+            _id: "1",
+            slug: "winter-hygiene-risks",
+            title: "Winter Hygiene Risks in Commercial Kitchens",
+            publishedAt: Date.now(),
+            content: "As temperatures drop, pests move indoors...",
+            coverImage: null
+        },
+        {
+            _id: "2",
+            slug: "digital-audit-trails",
+            title: "Why Paper Logs Won't Stand Up in Court",
+            publishedAt: Date.now() - 86400000,
+            content: "The legal landscape is shifting...",
+            coverImage: null
+        },
+        {
+            _id: "3",
+            slug: "ai-in-construction",
+            title: "AI in Construction: Beyond the Hype",
+            publishedAt: Date.now() - 172800000,
+            content: "How computer vision is saving lives...",
+            coverImage: null
+        }
+    ];
+
+    const [searchQuery, setSearchQuery] = useState("");
+
+    const tools = [
+        {
+            id: "chefos",
+            name: "ChefOS",
+            sector: "Hospitality",
+            description: "Automated hygiene compliance and kitchen intelligence.",
+            icon: Shield,
+            theme: "green",
+            status: "Live",
+            href: "/products/chefos"
+        },
+        {
+            id: "siteos",
+            name: "SiteOS",
+            sector: "Construction",
+            description: "Site audits, incident reporting, and safety logs.",
+            icon: HardHat,
+            theme: "orange",
+            status: "Join Waitlist",
+            href: "/products/siteos"
+        },
+        {
+            id: "aegis",
+            name: "Aegis",
+            sector: "Logistics",
+            description: "Fleet management and cargo manifest verification.",
+            icon: Truck,
+            theme: "cyan",
+            status: "Case Study",
+            href: "/products/aegis"
+        }
+    ];
+
+    const filteredTools = tools.filter(t =>
+        t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        t.sector.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    return (
+        <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-slate-200">
+
+            {/* Navigation Placeholder (Minimal) */}
+            <nav className="border-b border-slate-100 py-4">
+                <div className="container mx-auto px-6 flex justify-between items-center">
+                    <div className="font-bold tracking-tight text-lg">VECTIS HUB</div>
+                    <div className="flex gap-4 text-sm font-medium text-slate-500">
+                        <Link href="/dashboard" className="hover:text-slate-900">Dashboard</Link>
+                        <Link href="/blog" className="hover:text-slate-900">Intelligence</Link>
+                    </div>
+                </div>
+            </nav>
+
+            {/* Hero Section */}
+            <section className="pt-24 pb-16 px-6">
+                <div className="container mx-auto max-w-5xl">
+                    <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 max-w-4xl">
+                        Intelligence for the <br className="hidden md:block" />
+                        <span className="text-slate-400">Industrial World.</span>
+                    </h1>
+
+                    <div className="relative max-w-xl">
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+                        <input
+                            type="text"
+                            placeholder="Find tools for your sector..."
+                            className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-200 transition-all text-lg placeholder:text-slate-400"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* The Core Grid (Launcher) */}
+            <section className="px-6 pb-24">
+                <div className="container mx-auto max-w-5xl">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {filteredTools.map((tool, index) => {
+                            const Icon = tool.icon;
+                            return (
+                                <div key={tool.id}>
+                                    <Link href={tool.href} className="block group h-full">
+                                        <div className="h-full p-8 border border-slate-200 rounded-2xl hover:border-slate-300 hover:shadow-lg transition-all duration-300 bg-white flex flex-col relative overflow-hidden">
+
+                                            {/* Status Badge */}
+                                            <div className="absolute top-6 right-6">
+                                                <span className={`
+                                            text-xs font-bold px-3 py-1 rounded-full border
+                                            ${tool.status === 'Live' ? 'bg-green-50 text-green-700 border-green-200' : ''}
+                                            ${tool.status === 'Join Waitlist' ? 'bg-orange-50 text-orange-700 border-orange-200' : ''}
+                                            ${tool.status === 'Case Study' ? 'bg-cyan-50 text-cyan-700 border-cyan-200' : ''}
+                                        `}>
+                                                    {tool.status}
+                                                </span>
+                                            </div>
+
+                                            <div className={`
+                                        w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-colors
+                                        ${tool.theme === 'green' ? 'bg-green-50 text-green-600 group-hover:bg-green-100' : ''}
+                                        ${tool.theme === 'orange' ? 'bg-orange-50 text-orange-600 group-hover:bg-orange-100' : ''}
+                                        ${tool.theme === 'cyan' ? 'bg-cyan-50 text-cyan-600 group-hover:bg-cyan-100' : ''}
+                                    `}>
+                                                <Icon size={28} />
+                                            </div>
+
+                                            <h2 className="text-2xl font-bold mb-2">{tool.name}</h2>
+                                            <p className="text-slate-500 mb-8 flex-1">{tool.description}</p>
+
+                                            <div className="flex items-center text-sm font-bold text-slate-900 group-hover:translate-x-1 transition-transform">
+                                                Explore {tool.sector} <ArrowUpRight size={16} className="ml-1" />
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* The Intelligence Feed */}
+            <section className="px-6 pb-24 bg-slate-50 border-t border-slate-200">
+                <div className="container mx-auto max-w-5xl pt-16">
+                    <div className="flex items-center justify-between mb-12">
+                        <h2 className="text-3xl font-bold tracking-tight">Deployment Logs</h2>
+                        <Link href="/blog" className="text-slate-500 hover:text-slate-900 flex items-center text-sm font-medium">
+                            View Archive <ArrowRight size={16} className="ml-2" />
+                        </Link>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {posts.map((post) => (
+                            <Link href={`/blog/${post.slug}`} key={post._id} className="group block">
+                                <article className="flex flex-col h-full">
+                                    <div className="aspect-[4/3] bg-slate-200 rounded-xl overflow-hidden mb-4 relative">
+                                        {post.coverImage ? (
+                                            <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                        ) : (
+                                            <div className="w-full h-full flex items-center justify-center text-slate-400 bg-white">
+                                                <span className="font-serif italic opacity-20">Vectis</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="text-xs font-bold text-slate-400 mb-2 uppercase tracking-wider">
+                                        {new Date(post.publishedAt).toLocaleDateString()}
+                                    </div>
+                                    <h3 className="text-lg font-bold mb-2 group-hover:text-blue-600 transition-colors leading-snug">
+                                        {post.title}
+                                    </h3>
+                                    <p className="text-slate-500 text-sm line-clamp-2">
+                                        {post.content.substring(0, 100)}...
+                                    </p>
+                                </article>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    );
 }
