@@ -59,7 +59,9 @@ export default function HubPage() {
             {/* Navigation Placeholder (Minimal) */}
             <nav className="border-b border-slate-100 py-4">
                 <div className="container mx-auto px-6 flex justify-between items-center">
-                    <div className="font-bold tracking-tight text-lg">VECTIS HUB</div>
+                    <div className="font-bold tracking-tight text-lg">
+                        <img src="https://res.cloudinary.com/dptqxjhb8/image/upload/v1764267175/AI_you_business_logo_maxoyl.png" alt="AI Your Business" className="h-10 w-auto" />
+                    </div>
                     <div className="flex gap-4 text-sm font-medium text-slate-500 items-center">
                         <Link href="/blog" className="hover:text-slate-900">Intelligence</Link>
 
@@ -85,20 +87,27 @@ export default function HubPage() {
             {/* Hero Section */}
             <section className="pt-24 pb-16 px-6">
                 <div className="container mx-auto max-w-5xl">
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 max-w-4xl">
-                        Intelligence for the <br className="hidden md:block" />
-                        <span className="text-slate-400">Industrial World.</span>
-                    </h1>
+                    <div className="flex flex-col md:flex-row items-center gap-12">
+                        <div className="flex-1">
+                            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 max-w-4xl">
+                                Intelligence for the <br className="hidden md:block" />
+                                <span className="text-slate-400">Industrial World.</span>
+                            </h1>
 
-                    <div className="relative max-w-xl">
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
-                        <input
-                            type="text"
-                            placeholder="Find tools for your sector..."
-                            className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-200 transition-all text-lg placeholder:text-slate-400"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
+                            <div className="relative max-w-xl">
+                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+                                <input
+                                    type="text"
+                                    placeholder="Find tools for your sector..."
+                                    className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-200 transition-all text-lg placeholder:text-slate-400"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                        <div className="flex-1">
+                            <img src="https://res.cloudinary.com/dptqxjhb8/image/upload/v1764267188/Macbook_image_d9nnot.png" alt="Dashboard Preview" className="w-full h-auto drop-shadow-2xl" />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -180,9 +189,14 @@ export default function HubPage() {
             {/* Knowledge Section (Operator Manuals) */}
             <section className="px-6 pb-24 bg-slate-50 border-t border-slate-200">
                 <div className="container mx-auto max-w-5xl pt-16">
-                    <div className="mb-12">
-                        <h2 className="text-3xl font-bold tracking-tight mb-2">Operator Manuals</h2>
-                        <p className="text-slate-500">Standard Operating Procedures for the AI workforce.</p>
+                    <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-8">
+                        <div>
+                            <h2 className="text-3xl font-bold tracking-tight mb-2">Operator Manuals</h2>
+                            <p className="text-slate-500">Standard Operating Procedures for the AI workforce.</p>
+                        </div>
+                        <div className="w-full md:w-1/3">
+                            <img src="https://res.cloudinary.com/dptqxjhb8/image/upload/v1764267216/AI_for_a_phys_world_t6xblf.png" alt="AI for a Physical World" className="w-full h-auto rounded-lg shadow-sm" />
+                        </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
