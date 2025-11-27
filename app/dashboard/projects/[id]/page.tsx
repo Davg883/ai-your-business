@@ -4,7 +4,7 @@ import { useQuery, useMutation, useAction } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { ArrowLeft, Play, Save, Loader2, CheckCircle, AlertTriangle, FileCode } from "lucide-react";
+import { ArrowLeft, Play, Save, Loader2, CheckCircle, AlertTriangle, FileCode, Activity } from "lucide-react";
 import Link from "next/link";
 import ReactMarkdown from 'react-markdown';
 
@@ -121,8 +121,8 @@ export default function ProjectDetailsPage() {
                         <h1 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
                             {project.title}
                             <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${project.status === 'completed' ? 'bg-green-100 text-green-700' :
-                                    project.status === 'reviewing' ? 'bg-yellow-100 text-yellow-700' :
-                                        'bg-slate-100 text-slate-700'
+                                project.status === 'reviewing' ? 'bg-yellow-100 text-yellow-700' :
+                                    'bg-slate-100 text-slate-700'
                                 }`}>
                                 {project.status}
                             </span>
