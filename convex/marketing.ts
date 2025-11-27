@@ -1,12 +1,12 @@
-import { query } from "./_generated/server";
 import { v } from "convex/values";
+import { query } from "./_generated/server";
 
 export const getPublishedPosts = query({
     args: {},
     handler: async (ctx) => {
         return await ctx.db
             .query("blog_posts")
-            .withIndex("by_status_publishedAt", (q) => q.eq("status", "published"))
+            .filter((q) => q.eq(q.field("status"), "published"))
             .order("desc")
             .collect();
     },
@@ -15,9 +15,10 @@ export const getPublishedPosts = query({
 export const getPostBySlug = query({
     args: { slug: v.string() },
     handler: async (ctx, args) => {
-        return await ctx.db
+        const post = await ctx.db
             .query("blog_posts")
             .withIndex("by_slug", (q) => q.eq("slug", args.slug))
             .first();
+        return post;
     },
 });
