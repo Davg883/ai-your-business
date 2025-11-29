@@ -166,4 +166,24 @@ export default defineSchema({
         openCount: v.number(),
         status: v.string(),
     }),
+    // --- FACTORY OS TABLES ---
+    factory_regulations: defineTable({
+        act_name: v.string(),
+        section_title: v.string(),
+        content_text: v.string(),
+        embedding: v.array(v.float64()),
+        category: v.string(),
+    }).vectorIndex("by_embedding", {
+        vectorField: "embedding",
+        dimensions: 1536,
+    }),
+
+    factory_audits: defineTable({
+        tenant_id: v.string(),
+        user_id: v.string(),
+        image_id: v.string(),
+        identified_hazard: v.string(),
+        citation_id: v.id("factory_regulations"),
+        status: v.string(),
+    }),
 });
